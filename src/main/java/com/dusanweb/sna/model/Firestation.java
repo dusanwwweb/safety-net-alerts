@@ -2,34 +2,34 @@ package com.dusanweb.sna.model;
 
 public class Firestation {
 
-	private String address;
-	private Integer station;
-	
-	public Firestation() {}
+    private String address;
+    private int station;
 
-	public Firestation(String address, Integer station) {
-		this.address = address;
-		this.station = station;
-	}
-	
-	public String getAddress() {
-		return address;
-	}
-	public Integer getStation() {
-		return station;
-	}
+    public Firestation() {}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public Firestation(String address, int station) {
+        this.address = address;
+        this.station = station;
+    }
 
-	public void setStation(Integer station) {
-		this.station = station;
-	}
+    public String getAddress() {
+        return address;
+    }
+    public int getStation() {
+        return station;
+    }
 
-	@Override
-	public String toString() {
-		return "Firestation [address=" + address + ", station=" + station + "]";
-	}	
-	
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setStation(int station) {
+        this.station = station;
+    }
+
+    @Override
+    public String toString() {
+        return "Firestation [address=" + address + ", station=" + station + "]";
+    }
+
 }

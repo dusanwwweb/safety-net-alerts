@@ -1,71 +1,73 @@
 package com.dusanweb.sna.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import java.util.List;
 
 public class MedicalRecord {
-	private String firstName;
-	private String lastName;
-	private LocalDate birthdate;
-	//medication & allergies peuvent etre plusieurs ou null
-	private List<String> medications;
-	private List<String> allergies;
-	
-	public MedicalRecord() {}
+    private String firstName;
+    private String lastName;
 
-	public MedicalRecord(String firstName, String lastName, LocalDate birthdate, List<String> medications,
-			List<String> allergies) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.birthdate = birthdate;
-		this.medications = medications;
-		this.allergies = allergies;
-	}
+    @JsonFormat(pattern="MM/dd/yyyy")
+    private LocalDate birthdate;
+    private List<String> medications;
+    private List<String> allergies;
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public MedicalRecord() {}
 
-	public String getLastName() {
-		return lastName;
-	}
+    public MedicalRecord(String firstName, String lastName, LocalDate birthdate, List<String> medications,
+                         List<String> allergies) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.medications = medications;
+        this.allergies = allergies;
+    }
 
-	public LocalDate getBirthdate() {
-		return birthdate;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public List<String> getMedications() {
-		return medications;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public List<String> getAllergies() {
-		return allergies;
-	}
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public List<String> getMedications() {
+        return medications;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public List<String> getAllergies() {
+        return allergies;
+    }
 
-	public void setBirthdate(LocalDate birthdate) {
-		this.birthdate = birthdate;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setMedications(List<String> medications) {
-		this.medications = medications;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setAllergies(List<String> allergies) {
-		this.allergies = allergies;
-	}
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
 
-	@Override
-	public String toString() {
-		return "MedicalRecord [firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate
-				+ ", medications=" + medications + ", allergies=" + allergies + "]";
-	}
-	
+    public void setMedications(List<String> medications) {
+        this.medications = medications;
+    }
+
+    public void setAllergies(List<String> allergies) {
+        this.allergies = allergies;
+    }
+
+    @Override
+    public String toString() {
+        return "MedicalRecord [firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate
+                + ", medications=" + medications + ", allergies=" + allergies + "]";
+    }
 }
