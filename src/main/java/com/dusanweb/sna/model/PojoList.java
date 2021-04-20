@@ -16,7 +16,7 @@ public class PojoList {
 
     public PojoList() {}
 
-     
+    @JsonCreator 
     public PojoList(List<Person> persons, List<Firestation> firestations, @JsonProperty("medicalrecords") List<MedicalRecord> medicalRecords) {
         this.persons = persons;
         this.firestations = firestations;
