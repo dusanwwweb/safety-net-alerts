@@ -12,8 +12,15 @@ import com.dusanweb.sna.repository.DataParserJson;
 @Service
 public class PersonService implements InterfaceService<Person>{
 
+//	@Autowired
+//	private DataParserJson dataJson;
+
+	private final DataParserJson dataJson;
+	
 	@Autowired
-	private DataParserJson dataJson;
+	public PersonService(DataParserJson dataJson) {
+		this.dataJson = dataJson;
+	}
 	
 	//READ
 	@Override

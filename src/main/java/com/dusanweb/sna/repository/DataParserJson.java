@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
+import com.dusanweb.sna.controller.PersonController;
 import com.dusanweb.sna.model.PojoList;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +19,8 @@ public class DataParserJson {
 
 //	@Value("${json.file.location}")
 //	private File file;
-	private static final Logger LOGGER = LogManager.getLogger(DataParserJson.class);
+	
+	private static final Logger log = LoggerFactory.getLogger(PersonController.class);
 	
 	public PojoList readAll() {
 
@@ -44,9 +46,9 @@ public class DataParserJson {
 		
 		try {
 			data = objectMapper.readValue(dataFile, PojoList.class);
-			LOGGER.info("SUCCESS JSON");
+			log.info("SUCCESS JSON");
 		} catch (Exception e) {
-			LOGGER.info("ERROR JSON", e);
+			log.info("ERROR JSON", e);
 		}
 		return data;
 	}

@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,18 +21,14 @@ import com.dusanweb.sna.service.PersonService;
 @RequestMapping("/person")
 public class PersonController {
 	
-//	private final DataParserJson dataJson;
-//	
-//	@Autowired
-//	public PersonController(DataParserJson dataJson) {
-//		this.dataJson = dataJson;
-//	}
-	
+	private static final Logger log = LoggerFactory.getLogger(PersonController.class);
+
 	@Autowired
 	private PersonService personService;
 	
 	@GetMapping(path = "/fullname")
 	public String getPerson(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) throws IOException {
+		log.trace("Logging a trace");
 		return personService.getByFullName(firstName, lastName).toString();
 	}
 	
